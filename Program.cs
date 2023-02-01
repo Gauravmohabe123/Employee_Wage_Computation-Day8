@@ -19,7 +19,7 @@ namespace Emp_Wage_Comp
             int FullDayHour = 8;
             int PerHour = 20;
             int TotalHour = 0;
-            while (Day != 20 && totalday != 30)
+            for (int i = 0; i < Day && TotalHour <= 100; i++)
             {
                 int ran = random.Next(0, 3);
 
@@ -27,8 +27,7 @@ namespace Emp_Wage_Comp
 
             switch (ran)
             {
-                case 0:
-                    totalday++;
+                case 0:                    
                     absent++;
 
                     break;
@@ -37,17 +36,15 @@ namespace Emp_Wage_Comp
                     Dailywage = PerHour * HalfDayHour;
                     TotalHour += Dailywage;
                     halfDayPresent++;
-                    Day++;
-                    totalday++;
+                    TotalHour = TotalHour + HalfDayHour;
+
                     break;
 
                 case 2:
                     Dailywage = PerHour * FullDayHour;
                     TotalHour += Dailywage;
-
                     fullDayPresent++;
-                    Day++;
-                    totalday++;
+                    TotalHour = TotalHour + FullDayHour;
                     break;
             }
                 Console.WriteLine("Employee absent in a month " + absent);
