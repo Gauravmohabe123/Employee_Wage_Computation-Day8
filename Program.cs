@@ -10,19 +10,25 @@ namespace Emp_Wage_Comp
 
             Random random= new Random();
             int Dailywage = 0;
+            int HalfDayHour = 4;
             int FullDayHour = 8;
             int PerHour = 20;
-            int ran=random.Next(0,2);
+            int ran=random.Next(0,3);
 
             if(ran == 0 )
             {
                 Console.WriteLine("Employee is Absent" );
 
             }
+            else if (ran==1)
+            {
+                Dailywage=PerHour*HalfDayHour; 
+                Console.WriteLine("Employee is present Half day and his wage is: " +Dailywage);
+            }
             else
             {
                 Dailywage = PerHour * FullDayHour;
-                Console.WriteLine("Employee is present and his wage is: " + Dailywage);
+                Console.WriteLine("Employee is present full day and his wage is: " + Dailywage);
             }
         }
     }
